@@ -3,7 +3,9 @@ node{
   git 'https://github.com/rsingh040/jenkins-sonarqube.git'
   }
   stage('Compile-Package'){
-   sh'mvn package'
+    //Get maven home path
+    def mvnHome = tool name: 'newmaven', type: 'maven'  
+    sh "${mvnHome}/bin/mvn package"
   }
 
 }
